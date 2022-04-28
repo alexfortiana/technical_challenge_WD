@@ -25,12 +25,12 @@ function PhonesList() {
 
 
   return (
+    <div className='flexbox'>
     <div>
 
     {allPhones.map((eachPhone) => {
         return (
             <div key={eachPhone.id}>
-            <h1>{eachPhone.name}</h1>
             {/* <h1>{eachPhone.price}</h1>
             <h1>{eachPhone.color}</h1>
             <h1>{eachPhone.description}</h1> */}
@@ -41,7 +41,13 @@ function PhonesList() {
 
     })}
 
+    </div>
+
+    <div>
+
     {id && <PhoneDetails allPhones={allPhones}/>}
+
+    </div>
 
 
 

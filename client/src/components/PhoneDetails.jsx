@@ -4,28 +4,24 @@ import { useParams } from 'react-router-dom'
 
 function PhoneDetails(props) {
     const [onePhone, setOnePhone] = useState(null)
-    // const {allPhones, setAllPhones} = props
+    const {allPhones} = props
     const {id} = useParams()
 
     useEffect(()=> {
+      setOnePhone(allPhones[id])
+      
        
 
-    },[])
+    },[id])
 
 
-    // if(props.allPhones){
-    //   const deatilPhone = props.allPhones.forEach((eachPhone, index)=> {
-    //     if(id === index){
-    //       return eachPhone[index] 
-    //     }
-        
-    //   })
-        
+  
+
    
-    //     console.log(deatilPhone)
-    // }
-
-    
+   
+    if(!onePhone){
+      return <div>...loading</div>
+    }
 
     
 
@@ -35,7 +31,13 @@ function PhoneDetails(props) {
   return (
     <div>
 
-    PHONE DETAILS
+  
+      
+        <h2>{onePhone.name}</h2>
+        <h2>{onePhone.price}</h2>
+        <h2>{onePhone.description}</h2>
+
+      
     
     </div>
   )
